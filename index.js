@@ -28,7 +28,7 @@ app.use(fileUpload({
 // I also retrive the uploaded files
 app.post("/api/fileanalyse", (req, res) => {
   const file = req.files.upfile;
-  file.mv(__dirname+'/uploads/'+file.name+file.mimetype, (err) => {
+  file.mv(__dirname+'/uploads/'+file.name, (err) => {
     if (err) {console.log(err)} else {console.log('uploaded')}
   });
   console.log(file.name);
