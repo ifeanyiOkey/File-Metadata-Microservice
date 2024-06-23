@@ -17,9 +17,13 @@ app.get("/", function (req, res) {
 // app.use(bodyParser.urlencoded({extended: false}));
 
 // mount fileUpload middleware to upload files
-app.use(fileUpload());
+app.use(fileUpload({
+  useTempFiles: true,
+  tempFileDir: '/tmp/'
+}));
 
 // post form request
+// For Storage, I used TemFiles so not to overflow the RAM
 app.post("/api/fileanalyse", (req, res) => {
   const file = req.files.upfile;
   console.log(file.name);
