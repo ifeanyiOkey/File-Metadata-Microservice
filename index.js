@@ -1,7 +1,6 @@
 const express = require("express");
 const cors = require("cors");
 require("dotenv").config();
-// const bodyParser = require("body-parser");
 const fileUpload = require("express-fileupload");
 
 const app = express();
@@ -13,8 +12,6 @@ app.get("/", function (req, res) {
   res.sendFile(process.cwd() + "/views/index.html");
 });
 
-//  mount bodyParser middleware to parse POST requests
-// app.use(bodyParser.urlencoded({extended: false}));
 
 // mount fileUpload middleware to upload files
 app.use(fileUpload({
